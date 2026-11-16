@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Atul Bokhandi — filmmaker and storyteller." />
+    <title>Atul Bokhandi — Filmmaker & Storyteller</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --paper:#f0ede4; --ink:#161616; --line:#c9c4b8; --rust:#d7512c; --yellow:#ffc929; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:"DM Sans", Arial, sans-serif; }
+      a { color:inherit; text-decoration:none; }
+      .topline { height:9px; background:var(--yellow); }
+      nav { height:77px; display:flex; align-items:center; justify-content:space-between; padding:0 4.2vw; border-bottom:1px solid var(--line); }
+      .wordmark { font:600 20px "Playfair Display",serif; letter-spacing:-.04em; }
+      .wordmark span { font-style:italic; font-weight:500; }
+      .navlinks { display:flex; gap:30px; font:500 10px "DM Mono",monospace; letter-spacing:.06em; text-transform:uppercase; }
+      .navlinks a:hover { color:var(--rust); }
+      .hero { min-height:650px; padding:clamp(45px,8vw,110px) 4.2vw 45px; display:grid; grid-template-columns:1.05fr .95fr; gap:30px; overflow:hidden; position:relative; }
+      .hero-copy { display:flex; flex-direction:column; justify-content:space-between; z-index:1; }
+      .eyebrow, .label { font:500 10px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+      .eyebrow:before { content:""; display:inline-block; width:20px; height:1px; background:currentColor; vertical-align:middle; margin:0 10px 2px 0; }
+      h1 { font:500 clamp(57px,8.1vw,128px)/.83 "Playfair Display",serif; letter-spacing:-.065em; margin:52px 0 40px; max-width:760px; }
+      h1 em { color:var(--rust); font-weight:500; }
+      .intro { max-width:405px; font-size:16px; line-height:1.5; margin:0; }
+      .arrow { width:48px; height:48px; display:grid; place-items:center; border:1px solid var(--ink); border-radius:50%; margin-top:40px; font-size:21px; transition:.25s; }
+      .arrow:hover { background:var(--ink); color:var(--paper); transform:translateY(4px); }
+      .hero-image { min-height:490px; position:relative; background:#b5a598 url('assets/atul-portrait.jpg') center 24%/cover; }
+      .hero-image:after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.18),transparent 54%); }
+      .frame { position:absolute; inset:20px; border:1px solid rgba(255,255,255,.6); z-index:1; }
+      .reel-tag { position:absolute; z-index:2; bottom:24px; left:24px; padding:10px 12px; color:white; border:1px solid rgba(255,255,255,.7); font:10px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+      .vertical { position:absolute; right:-5px; top:42%; transform:rotate(90deg); transform-origin:right; font:10px "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; white-space:nowrap; }
+      .statement { display:grid; grid-template-columns:1fr 2fr; padding:115px 4.2vw; border-top:1px solid var(--line); }
+      .statement h2 { font:500 clamp(37px,5.1vw,75px)/.98 "Playfair Display",serif; letter-spacing:-.055em; margin:0; max-width:790px; }
+      .statement h2 em { color:var(--rust); }
+      .work { background:var(--ink); color:var(--paper); padding:28px 4.2vw 75px; }
+      .section-head { display:flex; justify-content:space-between; align-items:center; padding:0 0 25px; border-bottom:1px solid #56534d; }
+      .section-head h2 { font:500 41px "Playfair Display",serif; letter-spacing:-.05em; margin:0; }
+      .section-head a { color:var(--yellow); font:10px "DM Mono",monospace; letter-spacing:.05em; text-transform:uppercase; }
+      .section-intro { max-width:520px; color:#cbc6bb; font:16px/1.5 "DM Sans",sans-serif; margin:30px 0 4px; }
+      .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding-top:28px; }
+      .project { cursor:pointer; }
+      .project-image { height:350px; position:relative; overflow:hidden; background:#493f37; }
+      .project-image img { height:100%; width:100%; object-fit:cover; filter:saturate(.75); transition:transform .6s ease, filter .4s; }
+      .project:hover img { transform:scale(1.055); filter:saturate(1); }
+      .project-index { position:absolute; top:12px; left:12px; background:var(--yellow); color:var(--ink); padding:5px 7px; font:10px "DM Mono",monospace; }
+      .project h3 { font:500 27px "Playfair Display",serif; letter-spacing:-.04em; margin:17px 0 8px; }
+      .project p { margin:0; color:#c3bfb5; font:11px "DM Mono",monospace; letter-spacing:.03em; text-transform:uppercase; }
+      .film-shelf { margin-top:80px; }
+      .film-shelf h3 { font:500 clamp(31px,3.7vw,51px) "Playfair Display",serif; letter-spacing:-.055em; margin:0 0 11px; }
+      .film-shelf > p { color:#c3bfb5; font-size:14px; margin:0 0 32px; }
+      .work-category { margin:0 0 68px; }
+      .category-heading { display:flex; gap:15px; align-items:baseline; padding:0 0 15px; border-bottom:1px solid #56534d; }
+      .category-heading h4 { font:500 25px "Playfair Display",serif; letter-spacing:-.035em; margin:0; }
+      .category-heading span { color:var(--yellow); font:10px "DM Mono",monospace; letter-spacing:.05em; text-transform:uppercase; }
+      .video-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding-top:21px; }
+      .video-card { display:block; }
+      .video-thumb { aspect-ratio:16/9; position:relative; overflow:hidden; background:#383632; }
+      .video-thumb img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+      .video-card:hover .video-thumb img { transform:scale(1.055); }
+      .play { position:absolute; left:13px; bottom:12px; display:grid; place-items:center; height:34px; width:34px; border:1px solid rgba(255,255,255,.9); border-radius:50%; color:#fff; font-size:11px; background:rgba(16,16,16,.32); }
+      .video-card h5 { font:500 20px/1.05 "Playfair Display",serif; letter-spacing:-.03em; margin:12px 0 6px; }
+      .video-card p { color:#c3bfb5; font:10px "DM Mono",monospace; letter-spacing:.04em; text-transform:uppercase; margin:0; }
+      .collection-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:11px; padding-top:21px; }
+      .collection-card { min-height:122px; padding:15px; border:1px solid #56534d; display:flex; flex-direction:column; justify-content:space-between; background:linear-gradient(135deg,#252525,#171717); transition:background .2s, transform .2s; }
+      .collection-card:hover { background:#34322e; transform:translateY(-3px); }
+      .collection-card span { color:var(--yellow); font:10px "DM Mono",monospace; letter-spacing:.05em; text-transform:uppercase; }
+      .collection-card strong { font:500 21px/1.03 "Playfair Display",serif; letter-spacing:-.03em; font-weight:500; }
+      .experience { padding:105px 4.2vw; border-top:1px solid var(--line); }
+      .experience-grid { display:grid; grid-template-columns:1fr 2fr; gap:20px; }
+      .experience h2 { font:500 clamp(43px,5.2vw,74px)/.9 "Playfair Display",serif; letter-spacing:-.06em; margin:15px 0 0; }
+      .roles { border-top:1px solid var(--ink); }
+      .role { display:grid; grid-template-columns:120px 1fr auto; gap:20px; padding:23px 0; border-bottom:1px solid var(--line); }
+      .role-date, .role-place { color:#706d66; font:10px "DM Mono",monospace; letter-spacing:.03em; text-transform:uppercase; }
+      .role h3 { font:500 24px "Playfair Display",serif; letter-spacing:-.03em; margin:0 0 6px; }
+      .role p { font-size:13px; line-height:1.45; margin:0; max-width:460px; }
+      .role-place { text-align:right; padding-top:5px; }
+      .about { display:grid; grid-template-columns:1fr 1fr; min-height:520px; }
+      .about-photo { background:url('assets/atul-field.jpg') center/cover; min-height:450px; }
+      .about-copy { padding:82px 10%; display:flex; flex-direction:column; justify-content:center; }
+      .about-copy h2 { font:500 clamp(43px,5.2vw,74px)/.9 "Playfair Display",serif; letter-spacing:-.06em; margin:16px 0 28px; }
+      .about-copy p { max-width:420px; font-size:16px; line-height:1.55; margin:0 0 17px; }
+      .about-copy a { width:max-content; margin-top:10px; border-bottom:1px solid var(--rust); color:var(--rust); font:500 11px "DM Mono",monospace; letter-spacing:.07em; padding-bottom:5px; text-transform:uppercase; }
+      .contact { padding:95px 4.2vw 35px; background:var(--rust); color:#fff7eb; }
+      .contact h2 { font:500 clamp(50px,8vw,118px)/.82 "Playfair Display",serif; letter-spacing:-.07em; margin:22px 0 50px; max-width:950px; }
+      .contact h2 em { color:var(--yellow); }
+      .contact-actions { border-top:1px solid rgba(255,247,235,.5); display:flex; justify-content:space-between; padding-top:19px; }
+      .contact-actions a { font:500 12px "DM Mono",monospace; letter-spacing:.04em; text-transform:uppercase; }
+      .contact-actions a:hover { color:var(--yellow); }
+      .contact-details { display:flex; gap:28px; flex-wrap:wrap; margin:0 0 27px; font:500 15px "DM Sans",sans-serif; }
+      .contact-details a { border-bottom:1px solid rgba(255,247,235,.58); padding-bottom:4px; }
+      footer { display:flex; justify-content:space-between; padding:17px 4.2vw; background:var(--ink); color:#e7e2d8; font:10px "DM Mono",monospace; letter-spacing:.04em; text-transform:uppercase; }
+      @media(max-width:760px) { .navlinks a:not(:last-child){display:none} nav{height:62px}.hero{display:block;min-height:0;padding-top:55px}.hero-image{height:430px;margin-top:50px}.vertical{display:none}.statement{display:block;padding:76px 4.2vw}.statement .label{margin-bottom:20px}.projects{grid-template-columns:1fr;gap:36px}.project-image{height:390px}.film-shelf{margin-top:65px}.video-grid{grid-template-columns:1fr}.collection-grid{grid-template-columns:1fr 1fr}.experience{padding:76px 4.2vw}.experience-grid{display:block}.experience-grid .label{margin-bottom:20px}.role{grid-template-columns:1fr;gap:8px}.role-place{text-align:left;padding-top:0}.about{grid-template-columns:1fr}.about-copy{padding:70px 8vw}.about-photo{min-height:320px;order:2}.contact{padding-top:75px}.contact-actions{gap:22px;align-items:flex-start;flex-direction:column}.contact-details{flex-direction:column;gap:12px}.intro{font-size:15px} }
+    </style>
+  </head>
+  <body>
+    <div class="topline"></div>
+    <nav>
+      <a class="wordmark" href="#top">Atul <span>Bokhandi</span></a>
+      <div class="navlinks"><a href="#work">Film shelf</a><a href="#about">The person</a><a href="#contact">Let’s talk ↗</a></div>
+    </nav>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <div>
+            <div class="eyebrow">Filmmaker / Storyteller</div>
+            <h1>Stories that begin by <em>listening.</em></h1>
+            <p class="intro">I’m Atul—documentary filmmaker, visual storyteller, and an attentive observer of the lives that often go unnoticed.</p>
+          </div>
+          <a class="arrow" href="#work" aria-label="See selected work">↓</a>
+        </div>
+        <div class="hero-image" role="img" aria-label="A filmmaker looking through a camera lens">
+          <div class="frame"></div>
+        </div>
+        <div class="vertical">Scroll to enter the story</div>
+      </section>
+
+      <section class="statement">
+        <div class="label">01 — The approach</div>
+        <h2>Every meaningful story begins with the patience to <em>listen.</em></h2>
+      </section>
+
+      <section class="work" id="work">
+        <div class="section-head"><h2>The film shelf</h2><span class="label">30 films & collections</span></div>
+        <p class="section-intro">This is not a highlight reel. It is a trail: from a Rajasthan community holding on to its sound, to brands looking for a more human way to be remembered.</p>
+        <div class="film-shelf">
+          <h3>All work, in one place.</h3>
+          <p>From rooted documentaries to high-energy launches—each film is grouped by the kind of story it tells.</p>
+          <div class="work-category">
+            <div class="category-heading"><h4>Documentary & impact</h4><span>Stories from the ground</span></div>
+            <div class="video-grid">
+              <a class="video-card" href="https://youtu.be/jI6yVjF7TEY" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/jI6yVjF7TEY/hqdefault.jpg" alt="The Forgotten Sound of Rajasthan thumbnail"><span class="play">▶</span></div><h5>The Forgotten Sound of Rajasthan</h5><p>A day in the life of the Dholi community.</p></a>
+              <a class="video-card" href="https://www.youtube.com/watch?v=W1Azs6eFZ0Y" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/W1Azs6eFZ0Y/hqdefault.jpg" alt="The Story Behind Unknown Deaths thumbnail"><span class="play">▶</span></div><h5>The Story Behind Unknown Deaths</h5><p>Looking beyond the headlines to lives left unnamed.</p></a>
+              <a class="video-card" href="https://www.youtube.com/watch?v=4UMsf2vWkaQ" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/4UMsf2vWkaQ/hqdefault.jpg" alt="Hyderabad Ki Jameela thumbnail"><span class="play">▶</span></div><h5>Hyderabad Ki Jameela</h5><p>A tale of courage, dignity, and everyday resilience.</p></a>
+              <a class="video-card" href="https://www.youtube.com/watch?v=G2EWh5wH6yE" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/G2EWh5wH6yE/hqdefault.jpg" alt="The Story of Deadly Dust thumbnail"><span class="play">▶</span></div><h5>The Story of Deadly Dust</h5><p>Tracing the unseen cost of polluted air.</p></a>
+              <a class="video-card" href="https://www.youtube.com/watch?v=TSvXYThUViY" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/TSvXYThUViY/hqdefault.jpg" alt="A Day in the Life of Sahill thumbnail"><span class="play">▶</span></div><h5>A Day in the Life of Sahill</h5><p>A close look at one life, one day, and what it holds.</p></a>
+              <a class="video-card" href="https://www.youtube.com/watch?v=lQ-2IkG2CRw" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/lQ-2IkG2CRw/hqdefault.jpg" alt="A library in the hills thumbnail"><span class="play">▶</span></div><h5>A Library in the Hills, an Emerging Future</h5><p>How a shared space for reading can expand possibility.</p></a>
+              <a class="video-card" href="https://www.youtube.com/watch?v=4zd5QIl_4eA" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/4zd5QIl_4eA/hqdefault.jpg" alt="Reality of a Rescued S3x Worker thumbnail"><span class="play">▶</span></div><h5>Reality of a Rescued S3x Worker</h5><p>A human story beyond rescue and survival.</p></a>
+              <a class="video-card" href="https://youtu.be/FV1qXZ7Lkh0" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/FV1qXZ7Lkh0/hqdefault.jpg" alt="Shhh It is Their Private Matter thumbnail"><span class="play">▶</span></div><h5>Shhh! It’s Their Private Matter</h5><p>What silence around private lives can conceal.</p></a>
+              <a class="video-card" href="https://youtu.be/b-S4qcIw3ec" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/b-S4qcIw3ec/hqdefault.jpg" alt="The Law of HIS Land thumbnail"><span class="play">▶</span></div><h5>The Law of HIS Land?</h5><p>Questioning power, belonging, and whose rules prevail.</p></a>
+              <a class="video-card" href="https://youtu.be/ZF4X5IuiX3s" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/ZF4X5IuiX3s/hqdefault.jpg" alt="Why Teach If Marriage Is the Plan thumbnail"><span class="play">▶</span></div><h5>Why Teach If Marriage Is the Plan?</h5><p>When education is constrained by an expected future.</p></a>
+              <a class="video-card" href="https://youtu.be/b4uIxEVdZhM" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/b4uIxEVdZhM/hqdefault.jpg" alt="Education that strengthens roots thumbnail"><span class="play">▶</span></div><h5>Education That Strengthens Roots</h5><p>Learning that grows from where children already stand.</p></a>
+              <a class="video-card" href="https://youtu.be/xBjyMzoIo9c" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/xBjyMzoIo9c/hqdefault.jpg" alt="Libraries Light Up Lives thumbnail"><span class="play">▶</span></div><h5>Libraries Light Up Lives</h5><p>The Seemanchal Library story, told through young readers.</p></a>
+              <a class="video-card" href="https://youtu.be/Ad4ugenh124" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/Ad4ugenh124/hqdefault.jpg" alt="Kahani Toofani Baccho Ki thumbnail"><span class="play">▶</span></div><h5>Kahani Toofani Baccho Ki!</h5><p>A story of children meeting the world with force and joy.</p></a>
+            </div>
+          </div>
+          <div class="work-category">
+            <div class="category-heading"><h4>Campaigns, brands & products</h4><span>Commercial storytelling</span></div>
+            <div class="video-grid">
+              <a class="video-card" href="https://www.youtube.com/watch?v=ajEzwi9s5og" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/ajEzwi9s5og/hqdefault.jpg" alt="Rishton Ki Gullak thumbnail"><span class="play">▶</span></div><h5>Rishton Ki Gullak</h5><p>Campaign / Gullak</p></a>
+              <a class="video-card" href="https://www.youtube.com/watch?v=wcDSviI_slc" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/wcDSviI_slc/hqdefault.jpg" alt="Microsoft Surface thumbnail"><span class="play">▶</span></div><h5>Microsoft Surface × Vineet Panchhi</h5><p>Brand film</p></a>
+              <a class="video-card" href="https://www.youtube.com/watch?v=rX8DZfV0gcw" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/rX8DZfV0gcw/hqdefault.jpg" alt="Jivisa soap thumbnail"><span class="play">▶</span></div><h5>Jivisa Wellness — Soap</h5><p>Product film</p></a>
+              <a class="video-card" href="https://youtu.be/cTePwR1UtGw" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/cTePwR1UtGw/hqdefault.jpg" alt="Jivisa candles thumbnail"><span class="play">▶</span></div><h5>Jivisa Wellness — Candles</h5><p>Product film</p></a>
+              <a class="video-card" href="https://youtu.be/Fwi2xYzaqJ4" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/Fwi2xYzaqJ4/hqdefault.jpg" alt="Jivisa kadha thumbnail"><span class="play">▶</span></div><h5>Jivisa Wellness — Kadha</h5><p>Product film</p></a>
+              <a class="video-card" href="https://youtu.be/Y0B8ZoFZ4uM" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/Y0B8ZoFZ4uM/hqdefault.jpg" alt="BMW G 310 RR launch thumbnail"><span class="play">▶</span></div><h5>BMW G 310 RR Launch</h5><p>Launch film</p></a>
+              <a class="video-card" href="https://youtu.be/OjC_oNxFOfI" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/OjC_oNxFOfI/hqdefault.jpg" alt="BMW R18 thumbnail"><span class="play">▶</span></div><h5>BMW R18 × Harshvardhan Rane</h5><p>Brand film</p></a>
+              <a class="video-card" href="https://youtu.be/i5VEL6pSLbQ" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/i5VEL6pSLbQ/hqdefault.jpg" alt="BMW C 400 GT thumbnail"><span class="play">▶</span></div><h5>BMW C 400 GT Launch</h5><p>Launch film</p></a>
+              <a class="video-card" href="https://youtu.be/FzcK1VNlcOQ" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/FzcK1VNlcOQ/hqdefault.jpg" alt="Ford Yaari thumbnail"><span class="play">▶</span></div><h5>Ford Yaari</h5><p>Brand film</p></a>
+              <a class="video-card" href="https://youtu.be/RRmVVL4194Q" target="_blank" rel="noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/RRmVVL4194Q/hqdefault.jpg" alt="Studds Helmet TVC thumbnail"><span class="play">▶</span></div><h5>Studds Helmet TVC</h5><p>Television commercial</p></a>
+            </div>
+          </div>
+          <div class="work-category">
+            <div class="category-heading"><h4>Channels & collections</h4><span>Keep watching</span></div>
+            <div class="collection-grid">
+              <a class="collection-card" href="https://www.youtube.com/playlist?list=PLbS3Mjx_4sQqN-ohPRNH633WyDU8gn5aA" target="_blank" rel="noreferrer"><span>Playlist</span><strong>Campaign Films ↗</strong></a>
+              <a class="collection-card" href="https://www.youtube.com/playlist?list=PLbS3Mjx_4sQpnb9Qf4nJNJsdC65D7CQzE" target="_blank" rel="noreferrer"><span>Playlist</span><strong>Issue Films ↗</strong></a>
+              <a class="collection-card" href="https://www.youtube.com/playlist?list=PLbS3Mjx_4sQo81mChEXzQOM4E8VoiE0bg" target="_blank" rel="noreferrer"><span>Playlist</span><strong>Organisation Films ↗</strong></a>
+              <a class="collection-card" href="https://www.youtube.com/playlist?list=PLbS3Mjx_4sQr2sF0bRbj1sJmjJRylYkmz" target="_blank" rel="noreferrer"><span>Playlist</span><strong>Success Stories ↗</strong></a>
+              <a class="collection-card" href="https://www.youtube.com/@jaihindproject" target="_blank" rel="noreferrer"><span>YouTube</span><strong>The Jai Hind Project ↗</strong></a>
+              <a class="collection-card" href="https://www.youtube.com/@bharat-jhp" target="_blank" rel="noreferrer"><span>YouTube</span><strong>Bharat ↗</strong></a>
+              <a class="collection-card" href="https://www.instagram.com/jaihindproject/" target="_blank" rel="noreferrer"><span>Instagram</span><strong>Jai Hind Project ↗</strong></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience" id="experience">
+        <div class="experience-grid">
+          <div><div class="label">02 — Experience</div><h2>Built in the field.</h2></div>
+          <div class="roles">
+            <article class="role"><div class="role-date">2025 — Present</div><div><h3>Founder, CommsPur Collective</h3><p>Leading communication strategy and visual storytelling for social-impact organisations, from narrative development to films and capacity-building.</p></div><div class="role-place">Dehradun</div></article>
+            <article class="role"><div class="role-date">2022 — 2025</div><div><h3>Co-founder, The Jai Hind Project</h3><p>Co-created an initiative documenting people and social realities across India through film, digital storytelling, and the Bharat project.</p></div><div class="role-place">India</div></article>
+            <article class="role"><div class="role-date">2019 — 2022</div><div><h3>Filmmaker → Senior Filmmaker, Word of Mouth Media</h3><p>Worked across direction, cinematography, editing, colour grading, and production for brand and campaign films.</p></div><div class="role-place">New Delhi</div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="about-photo" role="img" aria-label="Live event photographed at night"></div>
+        <div class="about-copy"><div class="label">03 — The person behind the camera</div><h2>Holding space for the real.</h2><p>For me, filmmaking is less about arriving with an answer and more about staying with a question. What is happening here? Who gets to speak? What changes when we pay attention?</p><p>Since 2019, I’ve worked across direction, cinematography, editing, and colour grading—often alongside grassroots communities and social-sector teams. Along the way, I’ve trained 300+ practitioners to make storytelling part of how their organisations work, not just how they report.</p><a href="https://www.linkedin.com/in/atul-bokhandi-0b8a66192/" target="_blank" rel="noreferrer">More on LinkedIn ↗</a></div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="label">04 — Begin a conversation</div>
+        <h2>Have a story worth <em>telling?</em></h2>
+        <div class="contact-details"><a href="mailto:atul@commspurcollective.com">atul@commspurcollective.com</a><a href="tel:+918077287329">+91 80772 87329</a></div>
+        <div class="contact-actions"><a href="https://www.instagram.com/atulbokhandi/" target="_blank" rel="noreferrer">Follow Atul on Instagram ↗</a><a href="https://www.linkedin.com/in/atul-bokhandi-0b8a66192/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div>
+      </section>
+    </main>
+    <footer><span>© 2026 Atul Bokhandi</span><span>Filmmaker · Storyteller</span></footer>
+  </body>
+</html>
